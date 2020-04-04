@@ -15,3 +15,7 @@ path = "src/blank.rs"
 [[bin]]
 name = "boj15329"
 path = "src/boj15329.rs"
+
+[[bin]]
+name = "boj2296"
+path = "src/boj2296.rs"
