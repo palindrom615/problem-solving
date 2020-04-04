@@ -11,3 +11,7 @@ edition = "2018"
 [[bin]]
 name = "blank"
 path = "src/blank.rs"
+
+[[bin]]
+name = "boj15329"
+path = "src/boj15329.rs"
