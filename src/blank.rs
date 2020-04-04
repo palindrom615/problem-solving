@@ -22,5 +22,5 @@ mod tests {
     use super::*;
 
     #[test]
-    fn always_success() {}
+    fn examples() {}
 }
