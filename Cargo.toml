@@ -36,3 +36,6 @@ path = "src/boj16722.rs"
 name = "boj17370"
 path = "src/boj17370.rs"
 
+[[bin]]
+name = "boj2014"
+path = "src/boj2014.rs"
