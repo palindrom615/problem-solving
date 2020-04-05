@@ -13,7 +13,7 @@ where
         .collect()
 }
 
-pub fn combination<T: Copy>(n: usize, xs: &[T]) -> Vec<Vec<T>> {
+pub fn combination<T: Copy>(n: usize, xs: Vec<T>) -> Vec<Vec<T>> {
     let mut pointers: Vec<usize> = (0..n).collect();
     let mut res: Vec<Vec<T>> = Vec::new();
     res.push(pointers.iter().map(|&a| xs[a]).collect());
@@ -39,7 +39,7 @@ mod tests {
     #[test]
     fn test_combintation() {
         assert_eq!(
-            combination(2, &[1, 2, 3]),
+            combination(2, vec![1, 2, 3]),
             vec![vec![1, 2], vec![1, 3], vec![2, 3]]
         );
     }

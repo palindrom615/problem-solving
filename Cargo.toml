@@ -27,3 +27,7 @@ path = "src/boj10899.rs"
 [[bin]]
 name = "boj18230"
 path = "src/boj18230.rs"
+
+[[bin]]
+name = "boj16722"
+path = "src/boj16722.rs"
