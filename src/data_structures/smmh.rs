@@ -236,7 +236,6 @@ mod tests {
         s.push(18);
         s.push(30);
         assert_eq!(s.pop_min(), Some(7));
-        dbg!(&s.tree);
         assert_eq!(s.pop_min(), Some(8));
         s.push(16);
         s.push(24);

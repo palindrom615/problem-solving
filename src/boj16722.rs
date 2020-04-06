@@ -66,10 +66,10 @@ struct Combination<'a> {
     pics: [&'a Pic; 3],
 }
 impl Combination<'_> {
-    fn is_H(&self) -> bool {
-        let is_shape_h = is_H(self.pics[0].shape, self.pics[1].shape, self.pics[2].shape);
-        let is_color_h = is_H(self.pics[0].color, self.pics[1].color, self.pics[2].color);
-        let is_bg_color_h = is_H(
+    fn is_h(&self) -> bool {
+        let is_shape_h = is_h(self.pics[0].shape, self.pics[1].shape, self.pics[2].shape);
+        let is_color_h = is_h(self.pics[0].color, self.pics[1].color, self.pics[2].color);
+        let is_bg_color_h = is_h(
             self.pics[0].bg_color,
             self.pics[1].bg_color,
             self.pics[2].bg_color,
@@ -139,15 +139,15 @@ fn main() {
     }
 
     let all_comb = combination(3, pics);
-    let all_H: Vec<Combination> = all_comb
+    let all_h: Vec<Combination> = all_comb
         .iter()
         .map(|a| Combination {
             pics: [&a[0], &a[1], &a[2]],
         })
-        .filter(|&a| a.is_H())
+        .filter(|&a| a.is_h())
         .collect();
     let mut all_h_set = HashSet::with_capacity(9);
-    for h in all_H.iter() {
+    for h in all_h.iter() {
         all_h_set.insert([h.pics[0].idx, h.pics[1].idx, h.pics[2].idx]);
     }
 
@@ -168,7 +168,7 @@ fn are_three_different<T: Eq>(a: T, b: T, c: T) -> bool {
     return a != b && b != c && c != a;
 }
 
-fn is_H<T: Eq + Copy>(a: T, b: T, c: T) -> bool {
+fn is_h<T: Eq + Copy>(a: T, b: T, c: T) -> bool {
     are_three_same(a, b, c) || are_three_different(a, b, c)
 }
 
@@ -238,15 +238,15 @@ mod tests {
             },
         ];
         let all_comb = combination(3, pics);
-        let all_H: Vec<Combination> = all_comb
+        let all_h: Vec<Combination> = all_comb
             .iter()
             .map(|a| Combination {
                 pics: [&a[0], &a[1], &a[2]],
             })
-            .filter(|&a| a.is_H())
+            .filter(|&a| a.is_h())
             .collect();
         let mut all_h_set = HashSet::with_capacity(9);
-        for h in all_H.iter() {
+        for h in all_h.iter() {
             all_h_set.insert([h.pics[0].idx, h.pics[1].idx, h.pics[2].idx]);
         }
         let guesses = vec![
@@ -269,68 +269,69 @@ mod tests {
     }
     #[test]
     fn is_h() {
-        let pic1 = &Pic {
-            idx: 1,
-            shape: C,
-            color: Y,
-            bg_color: G,
-        };
-        let pic2 = &Pic {
-            idx: 2,
-            shape: C,
-            color: R,
-            bg_color: K,
-        };
-        let pic3 = &Pic {
-            idx: 3,
-            shape: C,
-            color: R,
-            bg_color: G,
-        };
-        let pic4 = &Pic {
-            idx: 4,
-            shape: C,
-            color: Y,
-            bg_color: K,
-        };
-        let pic5 = &Pic {
-            idx: 5,
-            shape: C,
-            color: R,
-            bg_color: W,
-        };
-        let pic6 = &Pic {
-            idx: 6,
-            shape: C,
-            color: B,
-            bg_color: K,
-        };
-        let pic7 = &Pic {
-            idx: 7,
-            shape: S,
-            color: Y,
-            bg_color: G,
-        };
-        let pic8 = &Pic {
-            idx: 8,
-            shape: S,
-            color: B,
-            bg_color: G,
-        };
-        let pic9 = &Pic {
-            idx: 9,
-            shape: T,
-            color: B,
-            bg_color: W,
-        };
-
+        let pics = vec![
+            Pic {
+                idx: 1,
+                shape: C,
+                color: Y,
+                bg_color: G,
+            },
+            Pic {
+                idx: 2,
+                shape: C,
+                color: R,
+                bg_color: K,
+            },
+            Pic {
+                idx: 3,
+                shape: C,
+                color: R,
+                bg_color: G,
+            },
+            Pic {
+                idx: 4,
+                shape: C,
+                color: Y,
+                bg_color: K,
+            },
+            Pic {
+                idx: 5,
+                shape: C,
+                color: R,
+                bg_color: W,
+            },
+            Pic {
+                idx: 6,
+                shape: C,
+                color: B,
+                bg_color: K,
+            },
+            Pic {
+                idx: 7,
+                shape: S,
+                color: Y,
+                bg_color: G,
+            },
+            Pic {
+                idx: 8,
+                shape: S,
+                color: B,
+                bg_color: G,
+            },
+            Pic {
+                idx: 9,
+                shape: T,
+                color: B,
+                bg_color: W,
+            },
+        ];
         let com1 = Combination {
-            pics: [pic1, pic5, pic6],
+            pics: [&pics[0], &pics[4], &pics[5]],
         };
         let com2 = Combination {
-            pics: [pic1, pic2, pic3],
+            pics: [&pics[0], &pics[1], &pics[2]],
         };
-        assert!(com1.is_H());
-        assert!(!com2.is_H());
+        assert!(com1.is_h());
+        assert!(!com2.is_h());
     }
 }
