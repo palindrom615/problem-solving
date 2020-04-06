@@ -7,35 +7,17 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+rand = "0.7"
+criterion = "0.3"
 
 [[bin]]
 name = "blank"
 path = "src/blank.rs"
+bench = false
 
-[[bin]]
-name = "boj15329"
-path = "src/boj15329.rs"
+[lib]
+bench=false
 
-[[bin]]
-name = "boj2296"
-path = "src/boj2296.rs"
-
-[[bin]]
-name = "boj10899"
-path = "src/boj10899.rs"
-
-[[bin]]
-name = "boj18230"
-path = "src/boj18230.rs"
-
-[[bin]]
-name = "boj16722"
-path = "src/boj16722.rs"
-
-[[bin]]
-name = "boj17370"
-path = "src/boj17370.rs"
-
-[[bin]]
-name = "boj2014"
-path = "src/boj2014.rs"
+[[bench]]
+name = "bench_smmh"
+harness = false
