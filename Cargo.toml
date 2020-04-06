@@ -10,14 +10,20 @@ edition = "2018"
 rand = "0.7"
 criterion = "0.3"
 
+[lib]
+bench=false
+
 [[bin]]
 name = "blank"
 path = "src/blank.rs"
 bench = false
 
-[lib]
-bench=false
+[[bin]]
+name = "boj2014"
+path = "src/boj2014.rs"
+bench = false
 
 [[bench]]
-name = "bench_smmh"
+name = "smmh"
+path = "benches/data_structures/smmh.bench.rs"
 harness = false
