@@ -43,6 +43,6 @@ path = "benches/data_structures/smmh.bench.rs"
 harness = false
 
 [[bench]]
-name = "boj15900"
-path = "benches/boj15900.bench.rs"
+name = "std"
+path = "benches/std/collections.bench.rs"
 harness = false

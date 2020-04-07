@@ -1,6 +1,6 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use std::collections::{VecDeque, HashSet};
 use rand::Rng;
+use std::collections::{HashSet, VecDeque};
 
 pub fn bench_vecdeque(c: &mut Criterion) {
     let mut rng = rand::thread_rng();
@@ -8,15 +8,9 @@ pub fn bench_vecdeque(c: &mut Criterion) {
     for i in 0..500000 {
         queue.push_back((rng.gen::<i32>(), rng.gen::<i32>()));
     }
- 
     c.bench_function("vecdeque pop_front", |b| {
         b.iter(|| {
             queue.pop_front();
-        })
-    });
-    c.bench_function("vecdeque len", |b| {
-        b.iter(|| {
-            queue.len();
         })
     });
 }
@@ -30,6 +24,11 @@ pub fn bench_vec(c: &mut Criterion) {
     c.bench_function("vec pop", |b| {
         b.iter(|| {
             vec.pop();
+        })
+    });
+    c.bench_function("vec allocate", |b| {
+        b.iter(|| {
+            let a = vec![-1; 1000000];
         })
     });
 }
@@ -53,5 +52,24 @@ pub fn bench_hashset(c: &mut Criterion) {
     });
 }
 
-criterion_group!(benches, bench_vecdeque, bench_vec, bench_hashset);
+pub fn bench_iter(c: &mut Criterion) {
+    c.bench_function("collect vec", |b| {
+        b.iter(|| {
+            let a: Vec<usize> = (0..500000).collect();
+        });
+    });
+    c.bench_function("collect set", |b| {
+        b.iter(|| {
+            let a: HashSet<usize> = (0..500000).collect();
+        });
+    });
+}
+
+criterion_group!(
+    benches,
+    bench_vecdeque,
+    bench_vec,
+    bench_hashset,
+    bench_iter
+);
 criterion_main!(benches);
