@@ -5,16 +5,18 @@ use std::collections::{HashSet, VecDeque};
 
 fn solve(num_of_nodes: usize, edges: &mut VecDeque<(usize, usize)>) -> bool {
     let mut nodes = vec![-1; num_of_nodes + 1];
-    let mut leafes: HashSet<usize> = (1..num_of_nodes + 1).collect();
+    let mut leafes = HashSet::new();
     nodes[1] = 0;
     while edges.len() != 0 {
         let (n1, n2) = edges.pop_front().unwrap();
         if nodes[n1] != -1 {
             nodes[n2] = nodes[n1] + 1;
             leafes.remove(&n1);
+            leafes.insert(n2);
         } else if nodes[n2] != -1 {
             nodes[n1] = nodes[n2] + 1;
             leafes.remove(&n2);
+            leafes.insert(n1);
         } else {
             edges.push_back((n1, n2));
         }
