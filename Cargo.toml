@@ -28,7 +28,17 @@ name = "boj5904"
 path = "src/boj5904.rs"
 bench = false
 
+[[bin]]
+name = "boj15900"
+path = "src/boj15900.rs"
+bench = false
+
 [[bench]]
 name = "smmh"
 path = "benches/data_structures/smmh.bench.rs"
+harness = false
+
+[[bench]]
+name = "boj15900"
+path = "benches/boj15900.bench.rs"
 harness = false
