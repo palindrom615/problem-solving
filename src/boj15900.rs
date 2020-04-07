@@ -3,28 +3,23 @@ use utils::*;
 
 use std::collections::{HashSet, VecDeque};
 
-#[derive(Clone, Debug)]
-struct Node {
-    depth: i32,
-}
-
 fn solve(num_of_nodes: usize, edges: &mut VecDeque<(usize, usize)>) -> bool {
-    let mut nodes = vec![Node { depth: -1 }; num_of_nodes + 1];
+    let mut nodes = vec![-1; num_of_nodes + 1];
     let mut leafes: HashSet<usize> = (1..num_of_nodes + 1).collect();
-    nodes[1].depth = 0;
+    nodes[1] = 0;
     while edges.len() != 0 {
         let (n1, n2) = edges.pop_front().unwrap();
-        if nodes[n1].depth != -1 {
-            nodes[n2].depth = nodes[n1].depth + 1;
+        if nodes[n1] != -1 {
+            nodes[n2] = nodes[n1] + 1;
             leafes.remove(&n1);
-        } else if nodes[n2].depth != -1 {
-            nodes[n1].depth = nodes[n2].depth + 1;
+        } else if nodes[n2] != -1 {
+            nodes[n1] = nodes[n2] + 1;
             leafes.remove(&n2);
         } else {
             edges.push_back((n1, n2));
         }
     }
-    let ans = leafes.iter().fold(0, |acc, &x| acc + nodes[x].depth);
+    let ans = leafes.iter().fold(0, |acc, &x| acc + nodes[x]);
     ans % 2 == 1
 }
 
@@ -43,6 +38,13 @@ fn main() {
 mod tests {
     use super::*;
 
+    #[test]
+    fn test_vecdeque() {
+        let mut s= VecDeque::new();
+        s.push_back(1);
+        s.push_back(2);
+        assert_eq!(s.pop_front().unwrap(), 1);
+    }
     #[test]
     fn examples() {
         assert_eq!(solve(2, &mut vec![(2, 1)].into()), true);
