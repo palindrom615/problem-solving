@@ -32,6 +32,10 @@ bench = false
 name = "boj15900"
 path = "src/boj15900.rs"
 bench = false
+[[bin]]
+name = "boj12837"
+path = "src/boj12837.rs"
+bench = false
 
 [[bench]]
 name = "smmh"
