@@ -1,6 +1,8 @@
 use std::fmt::Debug;
 use std::str::FromStr;
 
+pub mod modular;
+
 pub fn read_line<T: FromStr>() -> Vec<T>
 where
     T::Err: Debug,
