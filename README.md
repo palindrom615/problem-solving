@@ -3,16 +3,7 @@
 1. Copy `blank.rs`
 
     ```sh
-    cp src/blank.rs src/<number of the problem>.rs
-    ```
-
-1. Add build target in `Cargo.toml` 
-
-    ```toml
-    # Cargo.toml
-    [[bin]]
-    name = "<number of the problem>"
-    path = "src/<number of the problem>.rs"
+    cp src/bin/{blank.rs,<number of the problem>.rs}
     ```
 
 1. **Solve the problem**

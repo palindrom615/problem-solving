@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn solve(l: i64, k: i64, memo: &mut [i64; 101]) -> i64 {
     if l <= 0 {

@@ -1,8 +1,7 @@
-mod data_structures;
-mod utils;
-use data_structures::smmh::*;
+use problem_solving::data_structures::smmh::SMMH;
+use problem_solving::utils::*;
+
 use std::collections::HashSet;
-use utils::*;
 
 fn solve<'a>(n: usize, primes: Vec<i32>) -> i32 {
     let mut heap = SMMH::with_capacity(n);
@@ -20,7 +19,7 @@ fn solve<'a>(n: usize, primes: Vec<i32>) -> i32 {
                     continue;
                 }
                 let &max_val = heap.peek_max().unwrap_or(&i32::max_value());
-                if heap.len() > n  {
+                if heap.len() > n {
                     if new_val > max_val {
                         break;
                     } else {

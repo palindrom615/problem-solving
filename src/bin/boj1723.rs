@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn solve(angles: Vec<f64>, k: usize) -> usize {
 // 가장 많은 차이가 나도록 하는 분배를 찾기 -> 가장 많은 조각을 반으로 나누기?

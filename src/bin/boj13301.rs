@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn fib(n: usize, memo: &mut [u64; 81]) -> u64 {
     if n == 0 {

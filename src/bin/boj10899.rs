@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn solve(p: i64, times: Vec<i64>) -> (i64, i64) {
     let mut num = 0;

@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn solve(cards: Vec<usize>, mut memo: &mut Vec<Vec<(usize, bool)>>) -> usize {
     sub_solve(&cards, 0, cards.len() - 1, &mut memo).0
