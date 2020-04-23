@@ -1,8 +1,6 @@
 use std::fmt::Debug;
 use std::str::FromStr;
 
-pub mod modular;
-
 pub fn read_line<T: FromStr>() -> Vec<T>
 where
     T::Err: Debug,
@@ -34,6 +32,8 @@ pub fn combination<T: Copy>(n: usize, xs: Vec<T>) -> Vec<Vec<T>> {
 
     res
 }
+
+pub mod modular;
 
 #[cfg(test)]
 mod tests {

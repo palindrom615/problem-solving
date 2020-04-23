@@ -2,7 +2,7 @@ use std::cmp::PartialEq;
 use std::ops::{Add, Mul, Sub};
 
 #[derive(Debug)]
-struct Mod_u32 {
+pub struct Mod_u32 {
     val: u32,
     remainder: u32,
 }
@@ -24,13 +24,36 @@ impl Add<u32> for Mod_u32 {
     }
 }
 
+impl Add<Mod_u32> for Mod_u32 {
+    type Output = Mod_u32;
+
+    fn add(self, other: Mod_u32) -> Mod_u32 {
+        Mod_u32 {
+            val: (self.val + other.val) % self.remainder,
+            remainder: self.remainder,
+        }
+    }
+}
+
 impl Mul<u32> for Mod_u32 {
     type Output = Mod_u32;
 
     fn mul(self, other: u32) -> Mod_u32 {
-        let ret = (self.val * other) % self.remainder;
+        let ret: u64 = (self.val * other) as u64 % self.remainder as u64;
         Mod_u32 {
-            val: ret,
+            val: ret as u32,
+            remainder: self.remainder,
+        }
+    }
+}
+
+impl Mul<Mod_u32> for Mod_u32 {
+    type Output = Mod_u32;
+
+    fn mul(self, other: Mod_u32) -> Mod_u32 {
+        let ret: u64 = (self.val * other.val) as u64 % self.remainder as u64;
+        Mod_u32 {
+            val: ret as u32,
             remainder: self.remainder,
         }
     }
@@ -56,7 +79,7 @@ impl Mod_u32 {
 }
 
 #[cfg(test)]
-mod tests { 
+mod tests {
     use super::*;
     #[test]
     fn test_eq() {
