@@ -14,7 +14,6 @@ fn solve<'a>(n: usize, primes: Vec<i32>) -> i32 {
             set.remove(&min);
             let &max_val = heap.peek_max().unwrap_or(&i32::max_value());
 
-            println!("{}, {} {}", min, heap.len(), max_val);
             for p in primes.iter() {
                 let new_val = min * p;
                 if set.contains(&new_val) {

@@ -39,6 +39,16 @@ path = "src/boj12837.rs"
 bench = false
 
 [[bin]]
+name = "boj1723"
+path = "src/boj1723.rs"
+bench = false
+
+[[bin]]
+name = "boj5463"
+path = "src/boj5463.rs"
+bench = false
+
+[[bin]]
 name = "boj13301"
 path = "src/boj13301.rs"
 bench = false
