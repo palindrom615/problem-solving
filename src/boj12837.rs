@@ -19,7 +19,10 @@ fn main() {
             }
         } else {
             let (_, &before) = flow_sum.range(..line[1]).next_back().unwrap_or((&0, &0));
-            let (_, &after) = flow_sum.range(..=line[2]).next_back().unwrap_or(flow_sum.iter().next_back().unwrap_or((&0, &0)));
+            let (_, &after) = flow_sum
+                .range(..=line[2])
+                .next_back()
+                .unwrap_or(flow_sum.iter().next_back().unwrap_or((&0, &0)));
             println!("{}", after - before);
         }
     }

@@ -42,7 +42,7 @@ mod tests {
 
     #[test]
     fn test_vecdeque() {
-        let mut s= VecDeque::new();
+        let mut s = VecDeque::new();
         s.push_back(1);
         s.push_back(2);
         assert_eq!(s.pop_front().unwrap(), 1);

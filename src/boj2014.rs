@@ -21,7 +21,7 @@ fn solve<'a>(n: usize, primes: Vec<i32>) -> i32 {
                     continue;
                 }
                 let &max_val = heap.peek_max().unwrap_or(&i32::max_value());
-                if heap.len() > n  {
+                if heap.len() > n {
                     if new_val > max_val {
                         break;
                     } else {

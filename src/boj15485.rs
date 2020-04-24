@@ -62,7 +62,7 @@ fn main() {
         two_pow_memo[i] = two_pow;
         two_pow = two_pow * 2 % DIVIDER;
     }
-    
+
     let line = read_line::<String>();
     let s = &line[0];
     println!("{}", solve(s, &two_pow_memo));

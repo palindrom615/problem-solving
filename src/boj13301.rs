@@ -37,6 +37,5 @@ mod tests {
         assert_eq!(solve(5), 26);
         assert_eq!(solve(6), 42);
         assert_eq!(solve(80), 122_611_581_443_223_182);
-
     }
 }
