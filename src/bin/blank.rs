@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn main() {
     let t: i32 = read_line()[0];

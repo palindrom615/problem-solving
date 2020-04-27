@@ -13,47 +13,12 @@ criterion = "0.3"
 [lib]
 bench=false
 
-[[bin]]
-name = "blank"
-path = "src/blank.rs"
-bench = false
-
-[[bin]]
-name = "boj2014"
-path = "src/boj2014.rs"
-bench = false
-
-[[bin]]
-name = "boj5904"
-path = "src/boj5904.rs"
-bench = false
-
-[[bin]]
-name = "boj15900"
-path = "src/boj15900.rs"
-bench = false
-
-[[bin]]
-name = "boj12837"
-path = "src/boj12837.rs"
-bench = false
-
-[[bin]]
-name = "boj13301"
-path = "src/boj13301.rs"
-bench = false
-
-[[bin]]
-name = "boj15485"
-path = "src/boj15485.rs"
-bench = false
-
 [[bench]]
 name = "smmh"
-path = "benches/data_structures/smmh.bench.rs"
+path = "benches/data_structures/smmh.rs"
 harness = false
 
 [[bench]]
 name = "std"
-path = "benches/std/collections.bench.rs"
+path = "benches/std/collections.rs"
 harness = false

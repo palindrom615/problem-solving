@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 /**
  * 문자열 왼쪽부터 b만 탐색하면서 b의 왼쪽에 있는 a의 개수, b의 오른쪽에 있는 c의 개수를 파악한다. 가장 먼저 나오는 b 왼쪽의
@@ -7,7 +6,7 @@ use utils::*;
  * b가 고정되어 있는 이 상태의 경우의 수는 (2^n - 1) * 2^k * (2^m - 1)
  *
  **/
-static DIVIDER: u32 = 1_000_000_007;
+const DIVIDER: u32 = 1_000_000_007;
 
 fn calc_num_of(s: &String) -> (Vec<usize>, Vec<usize>) {
     let mut num_of_left_a = vec![];

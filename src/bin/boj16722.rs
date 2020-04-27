@@ -1,6 +1,5 @@
-mod utils;
 use std::collections::HashSet;
-use utils::*;
+use problem_solving::utils::*;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum Shape {

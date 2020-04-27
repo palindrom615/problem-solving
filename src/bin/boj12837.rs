@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 use std::collections::BTreeMap;
 

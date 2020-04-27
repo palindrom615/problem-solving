@@ -1,5 +1,4 @@
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn solve(n: usize, beauty2x1: &mut Vec<i64>, beauty2x2: &mut Vec<i64>) -> i64 {
     let mut answer: i64 = 0;

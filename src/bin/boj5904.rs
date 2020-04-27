@@ -5,8 +5,7 @@
  * m(k) := n(k) + k + 5 = 2m(k - 1) = m(0) * 2^(k) = 2^(k+1)
  * n(k) = 2^(k+3) - k - 5
  */
-mod utils;
-use utils::*;
+use problem_solving::utils::*;
 
 fn n_k(k: i32) -> usize {
     usize::pow(2, (k + 3) as u32) - (k + 5) as usize
