@@ -1,5 +1,7 @@
-use std::collections::HashSet;
 use problem_solving::utils::*;
+use problem_solving::utils::combination::*;
+
+use std::collections::HashSet;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum Shape {
