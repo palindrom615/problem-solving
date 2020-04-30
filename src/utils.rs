@@ -12,4 +12,3 @@ pub fn read_line<T: FromStr, B: FromIterator<T>>() -> B {
 
 pub mod modular;
 pub mod combination;
-pub mod permutation;
